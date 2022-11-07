@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.empresa</groupId>
-	<artifactId>rastreio</artifactId>
+	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rastreio</name>
+	<name>api</name>
 	<description>Projeto de rastreio de entregas</description>
 	<properties>
 		<java.version>11</java.version>
