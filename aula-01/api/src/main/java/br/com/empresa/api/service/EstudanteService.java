@@ -14,7 +14,7 @@ import br.com.empresa.api.entity.Estudante;
 @Service
 public class EstudanteService {
 
-	private Map<Long, Estudante> listaEstudantes = new HashMap<>();
+	private static Map<Long, Estudante> listaEstudantes = new HashMap<>();
 	
 	public ResponseEntity<Estudante> buscarEstudadePorId(Long id) {
 		Estudante estudante = listaEstudantes.get(id);
