@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import br.com.empresa.api.entity.Estudante;
 
 @Service
-public class ClienteService {
+public class EstudanteService {
 
 	private Map<Long, Estudante> listaEstudantes = new HashMap<>();
 	
