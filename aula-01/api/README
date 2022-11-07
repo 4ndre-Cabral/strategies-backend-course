@@ -1,0 +1,16 @@
+# Aulas 3
+
+## 3.1 - Definindo as classes
+- UploadFileResponse
+- FileStorageException
+- MyFileNotFoundException
+
+## 3.2 - Configurando o ambiente
+- application.properties
+- FileStorageProperties
+- ApiApplication
+
+## 3.3 - Criando o Controller e o Service
+- FileStorageService
+- FileController
+- Modificar o EstudanteController
