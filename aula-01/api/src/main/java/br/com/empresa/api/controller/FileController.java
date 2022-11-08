@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.empresa.api.entity.UploadFileResponse;
+import br.com.empresa.api.response.UploadFileResponse;
 import br.com.empresa.api.service.FileStorageService;
 import lombok.AllArgsConstructor;
 

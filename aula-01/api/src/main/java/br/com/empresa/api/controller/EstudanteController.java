@@ -2,6 +2,7 @@ package br.com.empresa.api.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.empresa.api.entity.Estudante;
+import br.com.empresa.api.request.PaginacaoRequest;
 import br.com.empresa.api.service.EstudanteService;
 import lombok.AllArgsConstructor;
 
@@ -29,13 +32,14 @@ public class EstudanteController {
 	}
 	
 	@GetMapping
-	public List<Estudante> buscarEstudades() {
-		return estudanteService.buscarEstudades();
+	public Page<Estudante> buscarEstudades(@RequestParam Integer pagina, @RequestParam Integer itensPorPagina) {
+		
+		return estudanteService.buscarEstudades(PaginacaoRequest.builder().pagina(pagina).itensPorPagina(itensPorPagina).build());
 	}
 	
 	@PostMapping
-	public ResponseEntity<Estudante> cadastrarEstudante(@RequestBody Estudante estudante) {
-		return estudanteService.cadastrarEstudante(estudante);
+	public ResponseEntity<List<Estudante>> cadastrarEstudante(@RequestBody List<Estudante> estudantes) {
+		return estudanteService.cadastrarEstudante(estudantes);
 	}
 
 	@PutMapping("/{id}")

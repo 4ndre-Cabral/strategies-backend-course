@@ -1,4 +1,4 @@
-package br.com.empresa.api.entity;
+package br.com.empresa.api.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
