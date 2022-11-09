@@ -1,0 +1,37 @@
+# Aulas 3
+
+## 3.1 - Definindo as classes
+- UploadFileResponse
+- FileStorageException
+- MyFileNotFoundException
+
+## 3.2 - Configurando o ambiente
+- application.properties
+- FileStorageProperties
+- ApiApplication
+
+## 3.3 - Criando o Controller e o Service
+- FileStorageService
+- FileController
+- Modificar o EstudanteController
+
+# Aula 4
+
+## 4.1 - Configurando Sping Data JPA
+- Breve intro
+- Adicionar spring jpa e h2
+- Config application.properties
+
+## 4.2 - Interface JPARepository
+- EstudanteRepository
+- Estudante (Entity, Id, GeneratedValue)
+
+## 4.3 - Métodos do Spring Data JPA
+- atualizar EstudanteService
+- Criar EP cadastrar vários estudantes
+
+## 4.4 - Paginação
+- EstudanteController (atualizar buscar estudantes)
+- PaginacaoRequest (criar package)
+- atualizar EstudanteService
+- Testar
