@@ -14,3 +14,24 @@
 - FileStorageService
 - FileController
 - Modificar o EstudanteController
+
+# Aula 4
+
+## 4.1 - Configurando Sping Data JPA
+- Breve intro
+- Adicionar spring jpa e h2
+- Config application.properties
+
+## 4.2 - Interface JPARepository
+- EstudanteRepository
+- Estudante (Entity, Id, GeneratedValue)
+
+## 4.3 - Métodos do Spring Data JPA
+- atualizar EstudanteService
+- Criar EP cadastrar vários estudantes
+
+## 4.4 - Paginação
+- EstudanteController (atualizar buscar estudantes)
+- PaginacaoRequest (criar package)
+- atualizar EstudanteService
+- Testar
