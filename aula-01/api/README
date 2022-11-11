@@ -32,6 +32,6 @@
 
 ## 4.4 - Paginação
 - EstudanteController (atualizar buscar estudantes)
-- PaginacaoRequest (criar package)
+- PaginacaoRequest (criar novo package)
 - atualizar EstudanteService
 - Testar
