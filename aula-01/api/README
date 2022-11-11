@@ -8,7 +8,6 @@
 ## 3.2 - Configurando o ambiente
 - application.properties
 - FileStorageProperties
-- ApiApplication
 
 ## 3.3 - Criando o Controller e o Service
 - FileStorageService
