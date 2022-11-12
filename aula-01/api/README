@@ -35,3 +35,49 @@
 - PaginacaoRequest (criar novo package)
 - atualizar EstudanteService
 - Testar
+
+# Aula 5
+
+## 5.1 - Introdução ao Spring JPA
+- Instalar MySQL
+- Instalar DBeaver
+- Configurar MySQL (add dependencia e altera properties)
+- Criar classe Endereço
+
+## 5.2 - Relacionamento OneToOne
+- Criar relacionamento entre Estudante e Endereco
+- Cadastrar e atualizar Estudante 
+    cascade = CascadeType.ALL
+    vs
+    cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}
+- Buscar estudante por id (resolver problema de loop com @JsonIgnore)
+
+## 5.3 - Relacionamento OneToMany e ManyToOne
+- Criar entity Livro
+- Add Livro na entity Estudante
+- Tentar salvar novo Estudante - vai dar erro
+
+- Criar LivroRepository
+- Modificar cadastrarEstudante em EstudanteService
+- Buscar estudante por ID - vai dar erro
+    Trocar @Data por @Getter e @Setter
+
+- Tentar Atualizar estudante sem livro - vai dar erro
+    Resolver usando -> private Set<Livro> livros = new HashSet<>();
+- Tentar Atualizar estudante com livro
+    Resolver atualizando atualizarEstudante em EstudanteService
+
+## 5.4 - Relacionamento ManyToMany
+- AvaliacaoCurso
+- AvaliacaoCursoKey
+- AvaliacaoCurso
+- Estudante
+- Curso
+- AvaliacaoRepository
+- AvaliacaoService
+- AvaliacaoCursoController
+- Testar \o/
+
+- mostrar problema de buscar Estudante por ID
+- EstudanteResponse
+- Atualizar EstudanteService.buscarEstudadePorId

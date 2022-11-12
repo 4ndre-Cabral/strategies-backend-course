@@ -1,8 +1,11 @@
 package br.com.empresa.api.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import org.hibernate.Hibernate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -11,8 +14,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.empresa.api.entity.Estudante;
+import br.com.empresa.api.entity.Livro;
 import br.com.empresa.api.repository.EstudanteRepository;
+import br.com.empresa.api.repository.LivroRepository;
 import br.com.empresa.api.request.PaginacaoRequest;
+import br.com.empresa.api.response.EstudanteResponse;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -20,13 +26,15 @@ import lombok.AllArgsConstructor;
 public class EstudanteService {
 	
 	private EstudanteRepository estudanteRepository;
+	private LivroRepository livroRepository;
 	
-	public ResponseEntity<Estudante> buscarEstudadePorId(Long id) {
+	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(Long id) {
 		Optional<Estudante> estudanteOpt = estudanteRepository.findById(id);
 		if (!estudanteOpt.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok(estudanteOpt.get());
+
+		return ResponseEntity.ok(EstudanteResponse.of(estudanteOpt.get()));
 	}
 
 	public Page<Estudante> buscarEstudades(PaginacaoRequest paginacaoRequest) {
@@ -35,8 +43,16 @@ public class EstudanteService {
 	}
 	
 	public ResponseEntity<List<Estudante>> cadastrarEstudante(List<Estudante> estudantes) {
-		List<Estudante> estudantesSalvos = estudanteRepository.saveAll(estudantes);
-		return new ResponseEntity<List<Estudante>>(estudantesSalvos, HttpStatus.CREATED);
+		for (Estudante estudante : estudantes) {
+			Set<Livro> livros = estudante.getLivros();
+			estudante.setLivros(new HashSet<>());
+			Estudante estudanteSalvo = estudanteRepository.save(estudante);
+			for (Livro livro : livros) {
+				livro.setEstudante(estudanteSalvo);
+				estudante.getLivros().add(livroRepository.save(livro));
+			}
+		}
+		return new ResponseEntity<List<Estudante>>(estudantes, HttpStatus.CREATED);
 	}
 
 	public ResponseEntity<Estudante> atualizarEstudante(Long id, Estudante estudante) {
@@ -44,6 +60,9 @@ public class EstudanteService {
 			return ResponseEntity.notFound().build();
 		}
 		estudante.setId(id); // deixar sem e mostrar a importancia de setar o id ao editar
+		for (Livro livro : estudante.getLivros()) {
+			livro.setEstudante(estudante);
+		}
 		estudanteRepository.save(estudante);
 		return new ResponseEntity<Estudante>(HttpStatus.OK);
 	}

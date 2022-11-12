@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.empresa.api.entity.Estudante;
 import br.com.empresa.api.request.PaginacaoRequest;
+import br.com.empresa.api.response.EstudanteResponse;
 import br.com.empresa.api.service.EstudanteService;
 import lombok.AllArgsConstructor;
 
@@ -27,7 +28,7 @@ public class EstudanteController {
 	EstudanteService estudanteService;
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Estudante> buscarEstudadePorId(@PathVariable Long id) {
+	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(@PathVariable Long id) {
 		return estudanteService.buscarEstudadePorId(id);
 	}
 	
