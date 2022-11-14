@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Hibernate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,18 +30,23 @@ public class EstudanteService {
 	private EstudanteRepository estudanteRepository;
 	private LivroRepository livroRepository;
 	
+	@Transactional
 	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(Long id) {
 		Optional<Estudante> estudanteOpt = estudanteRepository.findById(id);
 		if (!estudanteOpt.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
 
+		Hibernate.initialize(estudanteOpt.get().getLivros());
 		return ResponseEntity.ok(EstudanteResponse.of(estudanteOpt.get()));
 	}
 
-	public Page<Estudante> buscarEstudades(PaginacaoRequest paginacaoRequest) {
+	@Transactional
+	public Page<EstudanteResponse> buscarEstudades(PaginacaoRequest paginacaoRequest) {
 		Pageable pageable = PageRequest.of(paginacaoRequest.getPagina(), paginacaoRequest.getItensPorPagina());
-		return estudanteRepository.findAll(pageable);
+		
+		Page<Estudante> estudantes = estudanteRepository.findAll(pageable);
+		return EstudanteResponse.of(estudantes);
 	}
 	
 	public ResponseEntity<List<Estudante>> cadastrarEstudante(List<Estudante> estudantes) {

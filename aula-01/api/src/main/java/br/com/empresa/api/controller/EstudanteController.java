@@ -33,7 +33,7 @@ public class EstudanteController {
 	}
 	
 	@GetMapping
-	public Page<Estudante> buscarEstudades(@RequestParam Integer pagina, @RequestParam Integer itensPorPagina) {
+	public Page<EstudanteResponse> buscarEstudades(@RequestParam Integer pagina, @RequestParam Integer itensPorPagina) {
 		
 		return estudanteService.buscarEstudades(PaginacaoRequest.builder().pagina(pagina).itensPorPagina(itensPorPagina).build());
 	}

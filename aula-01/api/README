@@ -81,3 +81,5 @@
 - mostrar problema de buscar Estudante por ID
 - EstudanteResponse
 - Atualizar EstudanteService.buscarEstudadePorId
+
+- Exercício: arrumar método: buscarEstudades

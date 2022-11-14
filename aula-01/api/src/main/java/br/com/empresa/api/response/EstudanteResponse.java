@@ -1,7 +1,12 @@
 package br.com.empresa.api.response;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 import br.com.empresa.api.entity.Endereco;
 import br.com.empresa.api.entity.Estudante;
@@ -32,5 +37,17 @@ public class EstudanteResponse {
 				.endereco(estudante.getEndereco())
 				.livros(estudante.getLivros())
 				.build();
+	}
+	
+	public static Page<EstudanteResponse> of(Page<Estudante> estudantes) {
+		List<EstudanteResponse> estudanteResponses = new ArrayList<>();
+		for (Estudante estudante : estudantes) {
+			estudanteResponses.add(of(estudante));
+		}
+		return new PageImpl<EstudanteResponse>(
+					estudanteResponses, 
+					estudantes.getPageable(),
+					estudantes.getTotalElements()
+				);
 	}
 }
