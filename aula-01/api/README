@@ -83,3 +83,26 @@
 - Atualizar EstudanteService.buscarEstudadePorId
 
 - Exercício: arrumar método: buscarEstudades
+
+# Aula 6
+## 6.1 - Lazy vs Eager e Cascade
+- Add spring.jpa.open-in-view = false e fetch = FetchType.LAZY (Estudante.livros)
+- mostrar funcionamento do LAZY
+- mudar para EAGER - funcionou \o/
+- voltar para LAZY
+- Usar @Transactional e Hibernate.initialize(estudanteOpt.get().getLivros());
+- Voltar para EAGER
+
+- Testar cascade do Estudante.endereco
+
+## 6.2 - Native Query vs JPQL
+- Começar com Curso findByNome
+- Mostrar 2 tipos de query JPA
+- Mostrar query nativa
+
+- Mostrar problema da lista de Livros que muda a ordem
+- Modificar estudante findAll para testar a busca ordenando o nome
+
+## 6.3 - Agendando uma tarefa com @Scheduled
+## 6.4 - Métodos assíncronos com @Async
+## 6.5 - WebSocket

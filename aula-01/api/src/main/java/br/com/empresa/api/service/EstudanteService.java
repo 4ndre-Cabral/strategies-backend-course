@@ -45,7 +45,7 @@ public class EstudanteService {
 	public Page<EstudanteResponse> buscarEstudades(PaginacaoRequest paginacaoRequest) {
 		Pageable pageable = PageRequest.of(paginacaoRequest.getPagina(), paginacaoRequest.getItensPorPagina());
 		
-		Page<Estudante> estudantes = estudanteRepository.findAll(pageable);
+		Page<Estudante> estudantes = estudanteRepository.findAllByOrderByNomeDesc(pageable);
 		return EstudanteResponse.of(estudantes);
 	}
 	
