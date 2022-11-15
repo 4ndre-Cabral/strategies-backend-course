@@ -104,5 +104,21 @@
 - Modificar estudante findAll para testar a busca ordenando o nome
 
 ## 6.3 - Agendando uma tarefa com @Scheduled
+- Criar método que irá repetir de tempos em tempos no package scheduled
+- Testar usando fixedDelay
+- Explicar o cron
+- Usar variável de ambiente
+
 ## 6.4 - Métodos assíncronos com @Async
+- Mostrar como java funciona de forma sincrona em AvaliacaoService.avaliar
+- Ativar Async
+- Criar servico async
+- Criar controller com um EP para testar
+
 ## 6.5 - WebSocket
+- Explicar a diferença entre http e websocket
+- Add dependencia
+- Criar Classe que representa a msg NotificacaoResponse
+- Criar config e Service
+- Enviar msg do metodo Async
+- Configurar o Postman e testar

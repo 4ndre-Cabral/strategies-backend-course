@@ -1,5 +1,7 @@
 package br.com.empresa.api.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,5 +16,7 @@ public interface EstudanteRepository extends JpaRepository<Estudante, Long>{
 	
 
 	Page<Estudante> findAllByOrderByNomeDesc(Pageable pageable);
+	
+	List<Estudante> findByAvaliacaoCursosEstudanteIsNull();
 
 }
