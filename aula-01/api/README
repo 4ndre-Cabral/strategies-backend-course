@@ -122,3 +122,18 @@
 - Criar config e Service
 - Enviar msg do metodo Async
 - Configurar o Postman e testar
+
+# Aula 7
+## 7.1 - Conceitos de Segurança com Spring
+## 7.2 - Spring Security
+## 7.3 - Autenticação 0Auth
+- Falar como funciona
+- Criar um conta
+- Criar uma API
+- Criar endPoint token jwt
+## 7.4 - Autenticação JWT
+- SecurityConfig
+- SecurityConfig.filterChain
+- AudienceValidator
+- SecurityConfig.jwtDecoder & SecurityConfig.filterChain
+- Testar Upload e Download de arquivos
