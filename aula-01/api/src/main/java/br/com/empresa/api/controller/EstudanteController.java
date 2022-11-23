@@ -18,6 +18,10 @@ import br.com.empresa.api.entity.Estudante;
 import br.com.empresa.api.request.PaginacaoRequest;
 import br.com.empresa.api.response.EstudanteResponse;
 import br.com.empresa.api.service.EstudanteService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -28,7 +32,16 @@ public class EstudanteController {
 	EstudanteService estudanteService;
 
 	@GetMapping("/{id}")
-	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(@PathVariable Long id) {
+	@ApiOperation(value = "Listar todos os estudantes")
+	@ApiResponses(
+			{
+				@ApiResponse(code = 401, message = "Acesso não autorizado."),
+				@ApiResponse(code = 403, message = "Proibido."),
+				@ApiResponse(code = 404, message = "Não encontrado."),
+			})
+	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(
+			@ApiParam(name = "Id do estudante", required = false)
+			@PathVariable Long id) {
 		return estudanteService.buscarEstudadePorId(id);
 	}
 	

@@ -137,3 +137,26 @@
 - AudienceValidator
 - SecurityConfig.jwtDecoder & SecurityConfig.filterChain
 - Testar Upload e Download de arquivos
+
+# 8 - Documentação de uma API com o Swagger
+## 8.1 - Introdução ao Framework Swagger
+## 8.2 - Instalando e Configurando o Swagger
+- Add dependencias
+    springfox-swagger2 e springfox-boot-starter
+- SpringFoxConfig
+- mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+- Mostrar resultado: http://localhost:8080/v2/api-docs
+- Add dependencia
+    springfox-swagger-ui
+- Mostrar resultado: http://localhost:8080/swagger-ui/
+- Mostrar como remover o controller de erro: 3 formas
+- Testar api com swagger com estudantes
+## 8.3 - Documentando uma API Rest
+- Mostrar que upload de arquivos não está funcionando no swagger
+- Arrumar FileController, mudando @RequestParam para @RequestPart
+- Documentar EstudanteController
+
+## 8.4 - Saiba mais: sugestões de leitura e vídeos
