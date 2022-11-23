@@ -1,15 +1,11 @@
 package br.com.empresa.api.controller;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.empresa.api.entity.AvaliacaoCurso;
 import br.com.empresa.api.service.AvaliacaoService;
 import lombok.AllArgsConstructor;
 

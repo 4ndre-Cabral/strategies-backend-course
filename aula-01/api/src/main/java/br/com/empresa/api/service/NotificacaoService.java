@@ -2,17 +2,12 @@ package br.com.empresa.api.service;
 
 import javax.annotation.PreDestroy;
 
-import com.corundumstudio.socketio.HandshakeData;
-import com.corundumstudio.socketio.SocketIONamespace;
-import com.corundumstudio.socketio.SocketIOServer;
-import com.corundumstudio.socketio.listener.ConnectListener;
-import com.corundumstudio.socketio.listener.DataListener;
-import com.corundumstudio.socketio.listener.DisconnectListener;
-
-import br.com.empresa.api.response.NotificacaoResponse;
-
 import org.springframework.stereotype.Service;
 
+import com.corundumstudio.socketio.SocketIONamespace;
+import com.corundumstudio.socketio.SocketIOServer;
+
+import br.com.empresa.api.response.NotificacaoResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
