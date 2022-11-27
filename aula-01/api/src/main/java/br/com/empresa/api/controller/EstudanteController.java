@@ -32,7 +32,7 @@ public class EstudanteController {
 	EstudanteService estudanteService;
 
 	@GetMapping("/{id}")
-	@ApiOperation(value = "Listar todos os estudantes")
+	@ApiOperation(value = "Listar estudante por Id")
 	@ApiResponses(
 			{
 				@ApiResponse(code = 401, message = "Acesso não autorizado."),
@@ -40,7 +40,6 @@ public class EstudanteController {
 				@ApiResponse(code = 404, message = "Não encontrado."),
 			})
 	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(
-			@ApiParam(name = "Id do estudante", required = false)
 			@PathVariable Long id) {
 		return estudanteService.buscarEstudadePorId(id);
 	}
