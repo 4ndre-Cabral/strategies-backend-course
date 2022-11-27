@@ -39,9 +39,7 @@
 # Aula 5
 
 ## 5.1 - Introdução ao Spring JPA
-- Instalar MySQL
-- Instalar DBeaver
-- Configurar MySQL (add dependencia e altera properties)
+- Configurar classe Arquivo
 - Criar classe Endereço
 
 ## 5.2 - Relacionamento OneToOne
