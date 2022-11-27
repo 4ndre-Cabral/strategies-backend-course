@@ -49,11 +49,12 @@ public class EstudanteService {
 	}
 	
 	public ResponseEntity<Estudante> excluirEstudate(Long id) {
-		if (!isEstudantePresent(id)) {
-			return ResponseEntity.notFound().build();
+		if (estudanteRepository.existsById(id))
+		{
+			estudanteRepository.deleteById(id);
+			return new ResponseEntity<Estudante>(HttpStatus.OK);
 		}
-		estudanteRepository.deleteById(id);
-		return new ResponseEntity<Estudante>(HttpStatus.OK);
+		return ResponseEntity.notFound().build();
 	}
 
 	private Boolean isEstudantePresent (Long id) {
