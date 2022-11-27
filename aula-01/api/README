@@ -18,9 +18,10 @@
 # Aula 4
 
 ## 4.1 - Configurando Sping Data JPA
-- Breve intro
-- Adicionar spring jpa e h2
+- Adicionar spring jpa e mysql
 - Config application.properties
+- Instalar MySQL
+- Instalar DBeaver
 
 ## 4.2 - Interface JPARepository
 - EstudanteRepository
