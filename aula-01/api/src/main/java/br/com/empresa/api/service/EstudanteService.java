@@ -29,9 +29,8 @@ public class EstudanteService {
 		return ResponseEntity.ok(estudanteOpt.get());
 	}
 
-	public Page<Estudante> buscarEstudades(PaginacaoRequest paginacaoRequest) {
-		Pageable pageable = PageRequest.of(paginacaoRequest.getPagina(), paginacaoRequest.getItensPorPagina());
-		return estudanteRepository.findAll(pageable);
+	public Page<Estudante> buscarEstudades(PageRequest pageRequest) {
+		return estudanteRepository.findAll(pageRequest);
 	}
 	
 	public ResponseEntity<List<Estudante>> cadastrarEstudante(List<Estudante> estudantes) {

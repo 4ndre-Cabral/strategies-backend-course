@@ -35,3 +35,6 @@
 - PaginacaoRequest (criar novo package)
 - atualizar EstudanteService
 - Testar
+
+### Desafio
+- Criar uma repositorio para Arquivo e um novo endpoin para lista-los

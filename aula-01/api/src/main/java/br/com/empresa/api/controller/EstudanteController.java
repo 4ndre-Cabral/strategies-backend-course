@@ -3,6 +3,7 @@ package br.com.empresa.api.controller;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +37,7 @@ public class EstudanteController {
 			@RequestParam(defaultValue = "0") Integer pagina,
 			@RequestParam(defaultValue = "5") Integer itensPorPagina) {
 		
-		return estudanteService.buscarEstudades(PaginacaoRequest.builder().pagina(pagina).itensPorPagina(itensPorPagina).build());
+		return estudanteService.buscarEstudades(PageRequest.of(pagina, itensPorPagina));
 	}
 	
 	@PostMapping
