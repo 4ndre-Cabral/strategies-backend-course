@@ -50,7 +50,7 @@ public class EstudanteController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Estudante> excluirEstudate(@PathVariable Long id) {
+	public ResponseEntity<String> excluirEstudate(@PathVariable Long id) {
 		return estudanteService.excluirEstudate(id);
 	}
 }
