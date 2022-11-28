@@ -17,13 +17,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "estudante")
+
+
+@Entity
 public class Endereco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String logradouro;
 	private String bairro;
 	private String cidade;

@@ -24,11 +24,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
+
 @Entity
 public class Estudante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String email;
 	private LocalDate dataNascimento;
