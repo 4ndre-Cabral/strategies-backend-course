@@ -33,33 +33,37 @@ public class EstudanteService {
 	@Transactional
 	public ResponseEntity<EstudanteResponse> buscarEstudadePorId(Long id) {
 		Optional<Estudante> estudanteOpt = estudanteRepository.findById(id);
+		// #1 - Usar a entidade Livros de alguma forma
+//		estudanteOpt.ifPresent(e -> {
+//			Set<Livro> livros = e.getLivros();
+//			System.out.println(livros.size());
+//		});
+		// #2 - Fazer o carregamento explícito de Livros
+//		Hibernate.initialize(estudanteOpt.get().getLivros());
 		if (!estudanteOpt.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
-
-		Hibernate.initialize(estudanteOpt.get().getLivros());
 		return ResponseEntity.ok(EstudanteResponse.of(estudanteOpt.get()));
 	}
 
-	@Transactional
+//	@Transactional
 	public Page<EstudanteResponse> buscarEstudades(PaginacaoRequest paginacaoRequest) {
 		Pageable pageable = PageRequest.of(paginacaoRequest.getPagina(), paginacaoRequest.getItensPorPagina());
 		
 		Page<Estudante> estudantes = estudanteRepository.findAllByOrderByNomeDesc(pageable);
+//		Page<Estudante> estudantes = estudanteRepository.findAll(pageable);
+//		estudantes.get().forEach(e -> {
+//			Set<Livro> livros = e.getLivros();
+//			System.out.println(livros.size());
+//		});
 		return EstudanteResponse.of(estudantes);
 	}
 	
-	public ResponseEntity<List<Estudante>> cadastrarEstudante(List<Estudante> estudantes) {
-		for (Estudante estudante : estudantes) {
-			Set<Livro> livros = estudante.getLivros();
-			estudante.setLivros(new HashSet<>());
-			Estudante estudanteSalvo = estudanteRepository.save(estudante);
-			for (Livro livro : livros) {
-				livro.setEstudante(estudanteSalvo);
-				estudante.getLivros().add(livroRepository.save(livro));
-			}
+	public ResponseEntity<Estudante> cadastrarEstudante(Estudante estudante) {
+		for (Livro livro : estudante.getLivros()) {
+			livro.setEstudante(estudante);
 		}
-		return new ResponseEntity<List<Estudante>>(estudantes, HttpStatus.CREATED);
+		return new ResponseEntity<Estudante>(estudanteRepository.save(estudante), HttpStatus.CREATED);
 	}
 
 	public ResponseEntity<Estudante> atualizarEstudante(Long id, Estudante estudante) {

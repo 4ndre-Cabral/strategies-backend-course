@@ -39,8 +39,8 @@ public class EstudanteController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<List<Estudante>> cadastrarEstudante(@RequestBody List<Estudante> estudantes) {
-		return estudanteService.cadastrarEstudante(estudantes);
+	public ResponseEntity<Estudante> cadastrarEstudante(@RequestBody Estudante estudante) {
+		return estudanteService.cadastrarEstudante(estudante);
 	}
 
 	@PutMapping("/{id}")
