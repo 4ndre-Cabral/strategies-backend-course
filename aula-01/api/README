@@ -29,7 +29,6 @@
 
 ## 4.3 - Métodos do Spring Data JPA
 - atualizar EstudanteService
-- Criar EP cadastrar vários estudantes
 
 ## 4.4 - Paginação
 - EstudanteController (atualizar buscar estudantes)
