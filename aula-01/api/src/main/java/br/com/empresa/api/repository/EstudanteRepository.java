@@ -15,13 +15,25 @@ import br.com.empresa.api.entity.Estudante;
 
 @Repository
 public interface EstudanteRepository extends JpaRepository<Estudante, Long>{
+	
+	List<Estudante> findByNomeAndEnderecoBairroLike(String nome, String bairro);
+	
+	List<Estudante> findByAvaliacaoCursosEstudanteIsNull();
+	
+	@Query(value = 	"SELECT e FROM Estudante e " +
+					" join AvaliacaoCurso ac " +
+					" where ac.estudante.id is null")
+	List<Estudante> findByAvaliacaoCursosEstudanteIsNullJPQL();
+	
+	@Query(value = 	"SELECT e.* FROM api.estudante e " +
+					" left join api.avaliacao_curso ac ON ac.estudante_id = e.id " +
+					" where ac.estudante_id is null", nativeQuery = true)
+	List<Estudante> findByAvaliacaoCursosEstudanteIsNullNativeQuery();
 
 	Page<Estudante> findAllByOrderByNomeAsc(Pageable pageable);
 	
 
 	Page<Estudante> findAllByOrderByNomeDesc(Pageable pageable);
-	
-	List<Estudante> findByAvaliacaoCursosEstudanteIsNull();
 
 	@Query("select e from Estudante e where e.id = :id")
 //	@EntityGraph(attributePaths = {"livros", "endereco"})
