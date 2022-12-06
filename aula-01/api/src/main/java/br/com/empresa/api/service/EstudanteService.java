@@ -73,6 +73,21 @@ public class EstudanteService {
 		estudanteRepository.save(estudante);
 		return new ResponseEntity<Estudante>(HttpStatus.OK);
 	}
+
+	public ResponseEntity atualizarEnderecoEstudante(Long id, Estudante estudanteRequest) {
+		Optional<Estudante> estudanteOpt = estudanteRepository.findById(id);
+		if (!estudanteOpt.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		Estudante estudante = estudanteOpt.get();
+		if (estudanteRequest.getEndereco() != null && estudanteRequest.getEndereco().getId() != null)
+		{
+			estudante.setEndereco(estudanteRequest.getEndereco());
+			estudanteRepository.save(estudante);
+			return ResponseEntity.status(HttpStatus.OK).body("Endereço atualizado com sucesso!");
+		}
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Necessário fornecer um endereço válido!");
+	}
 	
 	public ResponseEntity<Estudante> excluirEstudate(Long id) {
 		if (!isEstudantePresent(id)) {
