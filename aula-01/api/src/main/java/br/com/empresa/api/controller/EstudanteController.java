@@ -31,8 +31,9 @@ public class EstudanteController {
 	
 	EstudanteService estudanteService;
 
-	@GetMapping("/{id}")
-	@ApiOperation(value = "Listar estudante por Id")
+	@GetMapping(value = "/{id}", produces = "application/json")
+	@ApiOperation(value = "Buscar estudante por Id",
+				  notes = "Retorna um estudante pelo Id caso exista")
 	@ApiResponses(
 			{
 				@ApiResponse(code = 401, message = "Acesso não autorizado."),

@@ -144,6 +144,7 @@
 - Add dependencias
     springfox-swagger2 e springfox-boot-starter
 - SpringFoxConfig
+- Add p/ corrigir bug:
 - mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
@@ -152,7 +153,7 @@
 - Add dependencia
     springfox-swagger-ui
 - Mostrar resultado: http://localhost:8080/swagger-ui/
-- Mostrar como remover o controller de erro: 3 formas
+- Mostrar como remover o controller de erro: 3 formas: SpringFoxConfig linhas 32 a 34
 - Testar api com swagger com estudantes
 ## 8.3 - Documentando uma API Rest
 - Mostrar que upload de arquivos não está funcionando no swagger

@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageImpl;
 import br.com.empresa.api.entity.Endereco;
 import br.com.empresa.api.entity.Estudante;
 import br.com.empresa.api.entity.Livro;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,7 +24,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class EstudanteResponse {
+	
+	@ApiModelProperty(notes = "ID do Estudante", example = "1")
 	private Long id;
+	
+	@ApiModelProperty(notes = "Nome do Estudante", example = "Oliver")
 	private String nome;
 	private String email;
 	private Endereco endereco;
