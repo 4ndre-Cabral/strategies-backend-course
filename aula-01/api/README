@@ -111,9 +111,9 @@
 
 ## 6.4 - Métodos assíncronos com @Async
 - Mostrar como java funciona de forma sincrona em AvaliacaoService.avaliar
-- Ativar Async
-- Criar servico async
-- Criar controller com um EP para testar
+- Ativar Async - @EnableAsync
+- Criar servico async - AtividadeAsyncService
+- Criar controller com um EP para testar - AtividadeAsyncController
 
 ## 6.5 - WebSocket
 - Explicar a diferença entre http e websocket
@@ -121,4 +121,4 @@
 - Criar Classe que representa a msg NotificacaoResponse
 - Criar config e Service
 - Enviar msg do metodo Async
-- Configurar o Postman e testar
+- Configurar o Postman e testar - ws://localhost:9092/ws-listener
