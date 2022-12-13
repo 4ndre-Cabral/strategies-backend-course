@@ -50,19 +50,26 @@
 - Buscar estudante por id (resolver problema de loop com @JsonIgnore)
 
 ## 5.3 - Relacionamento OneToMany e ManyToOne
-- Criar entity Livro
 - Add Livro na entity Estudante
 - Tentar salvar novo Estudante - vai dar erro
 
 - Criar LivroRepository
 - Modificar cadastrarEstudante em EstudanteService
+
 - Buscar estudante por ID - vai dar erro
     Trocar @Data por @Getter e @Setter
 
 - Tentar Atualizar estudante sem livro - vai dar erro
-    Resolver usando -> private Set<Livro> livros = new HashSet<>();
+    Resolver usando -> 
+    private Set<Livro> livros = new HashSet<>();
+
 - Tentar Atualizar estudante com livro
     Resolver atualizando atualizarEstudante em EstudanteService
+    ->
+    estudante.setId(id);
+    for (Livro livro : estudante.getLivros()) {
+        livro.setEstudante(estudante);
+    }
 
 ## 5.4 - Relacionamento ManyToMany
 - AvaliacaoCurso
