@@ -45,10 +45,7 @@
 
 ## 5.2 - Relacionamento OneToOne
 - Criar relacionamento entre Estudante e Endereco
-- Cadastrar e atualizar Estudante 
-    cascade = CascadeType.ALL
-    vs
-    cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}
+- Cadastrar estudante
 - Buscar estudante por id (resolver problema de loop com @JsonIgnore)
 
 ## 5.3 - Relacionamento OneToMany e ManyToOne
@@ -93,6 +90,12 @@
 - Voltar para EAGER
 
 - Testar cascade do Estudante.endereco
+- atualizar Estudante 
+    cascade = CascadeType.ALL
+- --- TESTE ------
+    1 - CascadeType.PERSIST
+    2 - {CascadeType.PERSIST, CascadeType.REMOVE}
+    3 - {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}
 
 ## 6.2 - Native Query vs JPQL
 - Começar com Curso findByNome
@@ -139,7 +142,6 @@
 
 # 8 - Documentação de uma API com o Swagger
 ## 8.1 - Introdução ao Framework Swagger
-## 8.2 - Instalando e Configurando o Swagger
 - Add dependencias
     springfox-swagger2 e springfox-boot-starter
 - SpringFoxConfig
@@ -147,7 +149,7 @@
 - mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
-
+## 8.2 - Instalando e Configurando o Swagger
 - Mostrar resultado: http://localhost:8080/v2/api-docs
 - Add dependencia
     springfox-swagger-ui
