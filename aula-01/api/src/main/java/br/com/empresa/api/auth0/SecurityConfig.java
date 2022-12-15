@@ -27,22 +27,15 @@ public class SecurityConfig {
     // Parte 1
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		// Aula 7.2
-//		http.csrf().disable()
-//			.authorizeRequests()
-//			.mvcMatchers("/arquivos/uploadFile").permitAll()
-//			.anyRequest().authenticated()
-//			.and()
-//			.httpBasic();
-//		return http.build();
-		http.csrf().disable()
-			.authorizeRequests()
-	        .mvcMatchers("/arquivos/uploadFile").permitAll()
-	        .mvcMatchers("/arquivos/uploadMultipleFiles").permitAll()
-	        .mvcMatchers("/arquivos/downloadFile/*").authenticated()
-	        .and().cors()
+    	http.csrf().disable()
+    		.securityMatcher("/**")
+			.authorizeHttpRequests()
+			.requestMatchers("/arquivos/upload").permitAll()
+            .anyRequest().authenticated()
+            .and()
+			.cors()
 	        .and().oauth2ResourceServer().jwt();
-        return http.build();
+		return http.build();
     }
 	
 	// Parte - 2
